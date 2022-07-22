@@ -1,0 +1,58 @@
+<!--COOKE CONSENT POPUP BOX -->
+<div id="consent-popup" class="hidden cookie-container">
+    <span class="close-btn">&times;</span>
+    <img src="/images/cookie.png" style="width: 80px; height:80px" alt="Cookie image">
+    <h3>Cookies and Privacy</h3>
+    <p>This website uses cookies to ensure optimal user experience on our website</p>
+    <a href="#" id="accept">Accept Cookies</a>
+    <p style="font-size: 8px;">By using this site you agree and have read our <a href="/legal/privacyPolicy">Privacy Policy</a>
+ </div>
+ 
+ <!--JAVASCRIPT FUNCTIONALITY FOR COOKIE POPUP BOX-->
+ <script>
+    const cookieStorage = { //defining our cookie storage
+       getItem: (item) => { //getting cookie data
+           const cookies = document.cookie
+               .split(';')
+               .map(cookie => cookie.split('='))
+               .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
+           return cookies[item]; //returning cookie data
+       },
+       setItem: (item, value) => { //storing cookie data
+           document.cookie = `${item}=${value};`
+       }
+   }
+   
+   const storageType = cookieStorage; //defining our cookie storage system
+   const consentPropertyName = 'viewpoint_ireland';
+   const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
+   const saveToStorage = () => storageType.setItem(consentPropertyName, true);
+   
+   window.onload = () => {
+   
+       const acceptFn = (e) => { //providing functionality to accept button
+         e.preventDefault()
+           saveToStorage(storageType);
+           consentPopup.classList.add('hidden');//once saved to storage popup will hide
+       }
+   
+       const closeFn = () => { //providing functionality to close button
+          consentPopup.classList.add('hidden'); //hiding popup box when calling close button
+       }
+       const closeBtn = document.querySelector('.close-btn');
+       const consentPopup = document.getElementById('consent-popup');
+       const acceptBtn = document.getElementById('accept');
+       acceptBtn.addEventListener('click', acceptFn);
+       closeBtn.addEventListener('click', closeFn);
+   
+       if (shouldShowPopup(storageType)) {
+           setTimeout(() => {
+               consentPopup.classList.remove('hidden');
+              
+           }, 2000);
+       }
+   
+    
+   };
+   
+   </script>

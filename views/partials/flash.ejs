@@ -1,0 +1,16 @@
+<!--INLUDING OUR SUCCESS/ERROR FLASH BOX USING EJS TO REFERENCE OUR APP.JS FLASH JS-->
+<% if(success && success.length) {%> 
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= success %>  <!--if data is correct flash success message-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close"></button>
+    </div>
+ <% } %> 
+    
+    <% if(error && error.length) {%> 
+        <div class="alert alert-danger alert-dismissible fade show my-2" role="alert">
+            <%= error %> <!--if error is presented flash error message-->
+            <button type="button" class="btn-close" data-bs-dismiss="alert" data-bs-target="#my-alert" aria-label="Close"></button>
+        </div>
+        
+    <% } %> 
+    

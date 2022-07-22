@@ -1,0 +1,52 @@
+<% layout('/layouts/boilerplate') %> <!--INCLUDING OUR BOILERPLATE USING EJS-->
+
+<div class="container" id="cluster-map"></div> <!--INCLUDING OUR MAPBOX MAP-->
+
+<!--MAIN HEADER-->
+<div class="location-header my-5">
+	<h1 style="color:white;opacity:.6" class="py-5">All Locations</h1>
+	<a class="btn-gradient py-2 px-4" href="/locations/new">Add Location
+		<i class="fa-solid fa-location-crosshairs px-1"></i>
+	</a>
+</div>
+
+<!--INCLUDING OUR LOCATION DATA REFERENCING & WRAPPING OUR LOCATION MODEL USING EJS-->
+<% for(let location of locations) {%>
+<div class="container location-container card mb-3 py-5" style="background-color: rgb(244, 244, 244);">
+	<div class="row">
+		<div class="col-md-4 d-flex justify-content-center pb-4"><% if(location.images.length) { %>
+			<a id="locationImg" href="/locations/<%= location._id %> ">
+				<img class="img-fluid" alt="Location image" src="<%=location.images[0].url%>">
+				</a><% }else {%>
+				<img class="img-fluid" alt="Location image default" src="https://res.cloudinary.com/dhrs5mwhz/image/upload/v1652198301/YelpCamp/rj0ew7pzwiseplivcln6.jpg"><% } %>
+				</div>
+				<div class="col-md-8">
+					<div class="card-body">
+						<h5 class="card-title"><%= location.title %>
+						</h5>
+						<p class="card-text py-4"><%= location.description %>
+						</p>
+						<p class="card-text">
+							<small class="text-muted"><%= location.location %>
+							</small>
+						</p>
+						<a class="btn btn-gradient" href="/locations/<%= location._id %> ">View <%= location.title %>
+							<i class="fa-solid fa-chevron-right px-2"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        <% } %>
+
+<!--REFERENCING OUR ENV TOKEN TO ACCESS OUR MAPBOX ACC-->
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const campgrounds = {features: <%- JSON.stringify(locations) %> }
+</script>
+
+<!--REFERENCING OUR CLUSTER MAP JAVASCRIPT FORM-->
+<script src="/javascripts/clusterMap.js"></script>
+		
+<div><%- include('../partials/cookieConsent') %>
+</div>

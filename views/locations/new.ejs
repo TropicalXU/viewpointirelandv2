@@ -1,0 +1,56 @@
+<% layout('/layouts/boilerplate') %> 
+
+<!--NEW LOCATION HEADER-->
+<div class="location-header-edit my-5">
+  <h1 style="color:white;opacity:.8" class="text-center py-5">New Location</h1>
+</div>
+<div>
+  <a class="btn btn-gradient" href="/locations"><i class="fa-solid fa-chevron-left px-2"></i>All Locations</a> 
+</div>
+<!-- LINE 6: ENCTYPE SPECIFIES HOW THE FORM-DATA SHOULD BE ENCODED WHEN SUBMITTING TO THE SERVER - IN THIS CASE FOR UPLOADING IMAGE TO NEW CAMPGROUND-->
+
+<!--ADD NEW LOCATION FORM-->
+   <div class="row py-5">
+
+      <div class="col-md-6 offset-md-3 mb-5 location-container p-5">
+        <form action="/locations" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label class="form-label py-2" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="campground[title]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label py-2" for="title">Location</label>
+                <input class="form-control" type="text" id="location" name="campground[location]" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+            <div class="mb-3">
+                <label class="form-label py-2" for="description">Description</label>
+                <textarea class="form-control" type="text" id="image" name="campground[description]" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
+            </div>
+            <div class="mb-3">
+              <label class="py-2" for="image">Upload Images</label>
+
+              <label for="image" class="form-label"></label>
+             
+              <input class="form-control" type="file" id="image" name="image" multiple>
+             
+            </div>
+            <div class="mb-3 py-3">
+            <button class="btn btn-gradient col-12">Add Location</button>
+            </div>
+        </form>
+      </div>
+   </div>
+
+
+   <div>
+    <%- include('../partials/cookieConsent') %> 
+ </div>
