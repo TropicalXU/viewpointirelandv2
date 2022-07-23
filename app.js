@@ -20,14 +20,16 @@ const mongoSanitize = require('express-mongo-sanitize');
 const userRoutes = require('./routes/users');
 const locationRoutes = require('./routes/locations');
 const reviewRoutes = require('./routes/reviews');
-const MongoDBStore = require('connect-mongodb-session')(session);
-const dbUrl = process.env.DB_URL
+
+const MongoDBStore = require('connect-mongo')(session);
+
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/viewpoint-ireland';
 
 //CONNECTING TO DATABASE
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
-    // useCreateIndex: true,
+    useCreateIndex: true,
     useUnifiedTopology: true,
  
 });
@@ -78,7 +80,7 @@ const sessionConfig = {
     cookie: {
         //httpOnly - used to protect cookird from client-side use
         httpOnly: true,
-        secure: true,
+        // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
