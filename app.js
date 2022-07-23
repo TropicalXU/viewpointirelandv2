@@ -21,7 +21,7 @@ const userRoutes = require('./routes/users');
 const locationRoutes = require('./routes/locations');
 const reviewRoutes = require('./routes/reviews');
 const MongoDBStore = require('connect-mongodb-session')(session);
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/viewpoint-ireland' ;
 
 //CONNECTING TO DATABASE
 
@@ -194,7 +194,7 @@ app.use((err, req, res, next) => {
 })
 
 //LISTEING ON PORT
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('LISTENING ON PORT 3000!')
 })
 
