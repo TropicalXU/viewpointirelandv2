@@ -21,15 +21,15 @@ const userRoutes = require('./routes/users');
 const locationRoutes = require('./routes/locations');
 const reviewRoutes = require('./routes/reviews');
 
-const MongoDBStore = require('connect-mongo')(session);
+const MongoDBStore = require("connect-mongo")(session);
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/viewpoint-ireland';
+const dbUrl = process.env.DB_URL
 
 //CONNECTING TO DATABASE
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
-    useCreateIndex: true,
+    // useCreateIndex: true,
     useUnifiedTopology: true,
  
 });
@@ -61,7 +61,7 @@ app.use(mongoSanitize({
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 const secret = process.env.SECRET
-const store =  new MongoDBStore({
+const store =  MongoDBStore.create({
     url: dbUrl,
     secret,
     touchAfter: 24 * 60 * 60//IF NO DATA HAS CHANGED DONT UPDATE FOR 24HOURS
@@ -80,7 +80,7 @@ const sessionConfig = {
     cookie: {
         //httpOnly - used to protect cookird from client-side use
         httpOnly: true,
-        // secure: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
