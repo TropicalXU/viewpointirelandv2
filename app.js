@@ -21,7 +21,7 @@ const userRoutes = require('./routes/users');
 const locationRoutes = require('./routes/locations');
 const reviewRoutes = require('./routes/reviews');
 
-const MongoDBStore = require("connect-mongo")(session);
+const MongoDBStore = require("connect-mongo");
 
 const dbUrl = process.env.DB_URL
 
@@ -33,7 +33,7 @@ mongoose.connect(dbUrl, {
     useUnifiedTopology: true,
  
 });
-console.log(dbUrl);
+
 
 const db = mongoose.connection; 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -61,7 +61,7 @@ app.use(mongoSanitize({
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 const secret = process.env.SECRET
-const store =  MongoDBStore.create({
+const store =  new MongoDBStore({
     url: dbUrl,
     secret,
     touchAfter: 24 * 60 * 60//IF NO DATA HAS CHANGED DONT UPDATE FOR 24HOURS
