@@ -46,6 +46,7 @@ h1, h2, h3, h5 {
 
 /* MAIN IMAGE HOME */
 .location-header {
+    min-height: fit-content;
     border: .5px solid darkgrey;
     border-radius: 25px;
     width: 98%;
@@ -62,7 +63,7 @@ h1, h2, h3, h5 {
 
 #navBrand {
     color: rgb(255, 255, 255);
-    font-size: 28px;
+    font-size: 25px;
     font-family: 'Kanit', sans-serif;
     text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.6);
 }
