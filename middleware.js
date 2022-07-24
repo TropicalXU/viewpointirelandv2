@@ -13,7 +13,7 @@ module.exports.isLoggedIn = (req, res ,next) => {
 }
 
 //VALIDATE LOCATION BODY IS CORRECT WHEN EDITING/UPDATING
-module.exports.validateCampground = (req, res, next) => {
+module.exports.validateLocation = (req, res, next) => {
    
     const {error} = locationSchema.validate(req.body);
     if (error) {
