@@ -77,8 +77,10 @@ h2, h3, h5 {
     margin: 80px 0px;
 }
 .img-fluid {
+    max-width: 100%;
+    height: auto;
     border-radius: 25px;
-
+    
     box-shadow: 0 10px 20px rgb(202, 202, 202);
 }
 
