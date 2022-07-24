@@ -161,12 +161,6 @@ res.locals.error = req.flash('error');
 next();
 });
 
-app.get('/fakeUser', async(req, res) => {
-    const user = new User({email: 'hackiit@gmail.com', username: 'Sean92'})
-    const newUser = await User.register(user, 'puppy')
-    res.send(newUser);
-})
-
 //INCLUDING OUR ROUTES
 app.use('/', userRoutes);
 app.use('/locations', locationRoutes);

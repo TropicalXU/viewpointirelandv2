@@ -7,16 +7,16 @@
 
 <!--EDIT CARD POST FORM--> <!--EJS USED TO REFERENCE LOCATION MODEL-->
 <div class="container pb-2">
-    <a class="btn btn-gradient" href="/locations/<%= campground._id%>"><i class="fa-solid fa-chevron-left px-2"></i>Back To Location</a>
+    <a class="btn btn-gradient" href="/locations/<%= location._id%>"><i class="fa-solid fa-chevron-left px-2"></i>Back To Location</a>
     </div>
 <div class="row py-5 mx-2 mb-5">
     <div class="col-md-6 offset-md-3 edit-section card-custom p-5">
-        <form action="/locations/<%=campground._id%>?_method=PUT" method="POST" novalidate class="validated-form"
+        <form action="/locations/<%=location._id%>?_method=PUT" method="POST" novalidate class="validated-form"
             enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="campground[title]"
-                    value="<%=campground.title %>" required>
+                    value="<%=location.title %>" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -24,7 +24,7 @@
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
                 <input class="form-control" type="text" id="location" name="campground[location]"
-                    value="<%=campground.location %>" required>
+                    value="<%=location.location %>" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -32,7 +32,7 @@
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
                 <textarea rows="4" class="form-control" type="text" id="description" name="campground[description]"
-                    required><%= campground.description%></textarea>
+                    required><%= location.description%></textarea>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -48,7 +48,7 @@
             <div class="mb-3">
                 <h5> Delete Images </h5>
     <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
-                <% campground.images.forEach(function(img, i) { %> <!--looping over each image to get image index if item is selected-->
+                <% location.images.forEach(function(img, i) { %> <!--looping over each image to get image index if item is selected-->
                     <div class="col">
                         <div class="card">
                             <img class="img-thumbnail" src="<%=img.url%>" alt="Location image thumbnail">

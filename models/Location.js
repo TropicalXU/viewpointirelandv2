@@ -15,7 +15,7 @@ ImageSchema.virtual('thumbnail').get(function() {//make virtual property to acce
 
 const opts = { toJSON: { virtuals: true } };
 
-const CampgroundSchema = new Schema({
+const LocationSchema = new Schema({
     title: String,
     images: [ImageSchema],
     geometry: {
@@ -33,7 +33,7 @@ const CampgroundSchema = new Schema({
     // price: Number,
     description: String,
     location: String,
-    author: {//DEFINING AN AUTHOR FOR FEATURES - ADD CAMPRGROUND/REVIEWS
+    author: {//DEFINING AN AUTHOR FOR FEATURES - ADD LOCATION/REVIEWS
         type: Schema.Types.ObjectId,
         ref: 'User'
     },
@@ -47,7 +47,7 @@ const CampgroundSchema = new Schema({
 
 },opts);
 
-CampgroundSchema.virtual('properties.popUpMarkup').get(function() {//make virtual property to access .thumbnail
+LocationSchema.virtual('properties.popUpMarkup').get(function() {//make virtual property to access .thumbnail
     return `
     <strong><a href="/campgrounds/${this._id}">${this.title}</a></strong>
     <p>${this.description.substring(0,20)}...</p>`
@@ -55,9 +55,9 @@ CampgroundSchema.virtual('properties.popUpMarkup').get(function() {//make virtua
 
 
 
-//DELETING ASSOCIATED REVIEWS AFTER DELETING CAMPGROUND , QUERY MIDDLEWARE
+//DELETING ASSOCIATED REVIEWS AFTER DELETING LOCATION , QUERY MIDDLEWARE
 
-CampgroundSchema.post('findOneAndDelete', async function(doc){
+LocationSchema.post('findOneAndDelete', async function(doc){
     if(doc){
         await Review.remove({
             _id: {
@@ -67,9 +67,9 @@ CampgroundSchema.post('findOneAndDelete', async function(doc){
     }
 })
 
-//EXPORTING CAMPGROUND MODEL
+//EXPORTING LOCATIONS MODEL
 
-module.exports = mongoose.model('Campground', CampgroundSchema);
+module.exports = mongoose.model('Location', LocationSchema);
 
 
 

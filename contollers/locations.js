@@ -1,88 +1,88 @@
-const Campground = require('../models/campground');
+const Location = require('../models/Location');
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken: mapBoxToken});
 const { cloudinary } = require('../cloudinary/index');
 
-//SHOWING CAMPGROUND PAGE 
+//SHOWING LOCATIONS PAGE 
 module.exports.index = async (req,res) => {
-    const locations = await Campground.find({});
+    const locations = await Location.find({});
     res.render('locations/index', {locations})
 }
 
-//CAMPGROUND NEW PAGE
+//LOCATION NEW PAGE
 module.exports.renderNewForm = (req, res) => {
     res.render('locations/new');
 }
 
-//CREATE A NEW CAMPGROUND
-module.exports.createCampground = async(req,res, next) => {
+//CREATE A NEW LOCATION
+module.exports.createLocation = async(req,res, next) => {
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.campground.location,
+        query: req.body.location.location,
         limit: 1
     }).send()
-   const campground = new Campground(req.body.campground);
-   campground.geometry = geoData.body.features[0].geometry;//models/campground.js line 19-- grabbing geodata from boding and parsing the json
-   campground.images = req.files.map(f => ({url: f.path, filename: f.filename}));//mapp over array thats been added to req.files thanks to multer/take path/filename make new object for each
-   campground.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD CAMPGROUND THEIR NAME WILL SHOW
-   await campground.save();
-   console.log(campground.images);
+   const location = new Location(req.body.location);
+   location.geometry = geoData.body.features[0].geometry;//models/location.js line 19-- grabbing geodata from boding and parsing the json
+   location.images = req.files.map(f => ({url: f.path, filename: f.filename}));//mapp over array thats been added to req.files thanks to multer/take path/filename make new object for each
+   location.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
+   await location.save();
+   console.log(location.images);
    req.flash('success', 'Successfully made a new location!');
-   res.redirect(`/locations/${campground._id}`)
+   res.redirect(`/locations/${location._id}`)
    next();
        
 }
 
-//SHOW CAMPGROUND
-module.exports.showCampground = async (req,res) => {
-    const campground = await Campground.findById(req.params.id).populate({
+//SHOW LOCATION
+module.exports.showLocation = async (req,res) => {
+    const location = await Location.findById(req.params.id).populate({
         path: 'reviews',
         populate: {
             path: 'author'
         }//POPULATING AUTHOR OF EACH REVIEW
     }).populate('author');
-    if(!campground){
+    if(!location){
         req.flash('error', 'Location does not exist!');
         return res.redirect('/locations');
     }
-    res.render('locations/show', {campground});
+    res.render('locations/show', {location});
 }
 
-//EDIT CAMPGROUND
+//EDIT LOCATION
 module.exports.renderEditForm = async(req,res) => {
     const {id} = req.params;
-    const campground = await Campground.findById(id)
-    if(!campground){
+    const location = await Location.findById(id)
+    if(!location){
         req.flash('error', 'Location does not exist!');
         return res.redirect('/locations');
     }
-    res.render('locations/edit', {campground});
+    res.render('locations/edit', {location});
 }
 
-//UPDATE CAMPGROUND
-module.exports.updateCampground = async(req,res) => {
-    const {id} = req.params;//FIND CAPMGROUND ID
-    const campground = await Campground.findByIdAndUpdate(id, {...req.body.campground});
+//UPDATE LOCATION
+module.exports.updateLocation = async(req,res) => {
+    const {id} = req.params;//FIND LOCATION ID
+    const location = await Location.findByIdAndUpdate(id, {...req.body.location});
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
-    campground.images.push(...imgs);
-    await campground.save()
+    location.images.push(...imgs);
+    await location.save()
     if(req.body.deleteImages) {
         for(let filename of req.body.deleteImages ){//for each filename call-
             await cloudinary.uploader.destroy(filename);//removing images from cloudinary when deleted
 
 
         }
-       await campground.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}} }) //$pull - to pull elements out of an array
-    }//deleting specific images from campground
+       await location.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}} }) //$pull - to pull elements out of an array
+    }//deleting specific images from location
    
     req.flash('success', 'Successfully updated location!')
-    res.redirect(`/locations/${campground._id}`)
+    res.redirect(`/locations/${location._id}`)
 }
 
-//DELETE CAMPGROUND
-module.exports.deleteCamprground = async(req,res) => {
+//DELETE LOCATION
+module.exports.deleteLocation = async(req,res) => {
     const {id} = req.params;
-    await Campground.findByIdAndDelete(id);
+    await Location.findByIdAndDelete(id);
     req.flash('success', 'Successfully deleted location!')
     res.redirect('/locations');
  }

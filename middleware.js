@@ -1,6 +1,6 @@
-const {campgroundSchema, reviewSchema} = require('./schemas');
+const {locationSchema, reviewSchema} = require('./schemas');
 const ExpressError = require('./utils/ExpressError');
-const Campground = require('./models/campground');
+const Location = require('./models/Location');
 const Review = require('./models/review');
 
 module.exports.isLoggedIn = (req, res ,next) => {
@@ -12,10 +12,10 @@ module.exports.isLoggedIn = (req, res ,next) => {
     next()
 }
 
-//VALIDATE CAMPGROUND BODY IS CORRECT WHEN EDITING/UPDATING
+//VALIDATE LOCATION BODY IS CORRECT WHEN EDITING/UPDATING
 module.exports.validateCampground = (req, res, next) => {
    
-    const {error} = campgroundSchema.validate(req.body);
+    const {error} = locationSchema.validate(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new ExpressError(msg, 400)
@@ -28,10 +28,10 @@ module.exports.validateCampground = (req, res, next) => {
 //CHECK IF AUTHOR MIDDLEWARE
 module.exports.isAuthor = async(req, res, next) => {
     const {id} = req.params;
-    const campground = await Campground.findById(id);
-    if(!campground.author.equals(req.user._id)){//IF CURRENT USER DOES NOT OWN THIS CAMPGROUND(ID)
+    const location = await Location.findById(id);
+    if(!location.author.equals(req.user._id)){//IF CURRENT USER DOES NOT OWN THIS LOCATION(ID)
 req.flash('error', 'You do not have permission to do that!');
-return res.redirect(`/locations/${id}`); // REDIRECT TO CAMPGROUND ID SHOW PAGE
+return res.redirect(`/locations/${id}`); // REDIRECT TO LOCATION ID SHOW PAGE
     }  
     next()
 }
