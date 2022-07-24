@@ -135,7 +135,6 @@ h1, h2, h3, h5 {
 }
 
 .location-header {
-    border: .5px solid darkgrey;
     border-radius: 25px;
     padding: 60px;
     background-image: url('https://images.unsplash.com/photo-1445098363707-e5f88be649f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80');
@@ -143,10 +142,10 @@ h1, h2, h3, h5 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    box-shadow: 0 0 10px rgb(225, 224, 224);
 }
 
 .location-header-edit {
-    border: .5px solid darkgrey;
     border-radius: 25px;
     padding: 30px;
     background-image: url('https://images.unsplash.com/photo-1596039677662-90c00fbde9b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2757&q=80');
@@ -154,6 +153,7 @@ h1, h2, h3, h5 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat; 
+    box-shadow: 0 0 10px rgb(225, 224, 224);
 }
 
 #locationImg:hover {
