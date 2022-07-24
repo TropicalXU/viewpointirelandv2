@@ -19,17 +19,17 @@ module.exports.renderNewForm = (req, res) => {
 //CREATE A NEW LOCATION
 module.exports.createLocation = async(req,res, next) => {
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.location.location,
+        query: req.body.locations.location,
         limit: 1
     }).send()
-   const location = new Location(req.body.location);
-   location.geometry = geoData.body.features[0].geometry;//models/location.js line 19-- grabbing geodata from boding and parsing the json
-   location.images = req.files.map(f => ({url: f.path, filename: f.filename}));//map over array thats been added to req.files thanks to multer/take path/filename make new object for each
-   location.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
-   await location.save();
-   console.log(location);
+   const locations = new Location(req.body.locations);
+   locations.geometry = geoData.body.features[0].geometry;//models/location.js line 19-- grabbing geodata from boding and parsing the json
+   locations.images = req.files.map(f => ({url: f.path, filename: f.filename}));//map over array thats been added to req.files thanks to multer/take path/filename make new object for each
+   locations.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
+   await locations.save();
+   console.log(locations);
    req.flash('success', 'Successfully added a new location!');
-   res.redirect(`/locations/${location._id}`)
+   res.redirect(`/locations/${locations._id}`)
        
 }
 
@@ -51,20 +51,20 @@ module.exports.showLocation = async (req,res) => {
 //EDIT LOCATION
 module.exports.renderEditForm = async(req,res) => {
     const {id} = req.params;
-    const location = await Location.findById(id)
-    if(!location){
+    const locations = await Location.findById(id)
+    if(!locations){
         req.flash('error', 'Location does not exist!');
         return res.redirect('/locations');
     }
-    res.render('locations/edit', {location});
+    res.render('locations/edit', {locations});
 }
 
 //UPDATE LOCATION
 module.exports.updateLocation = async(req,res) => {
     const {id} = req.params;//FIND LOCATION ID
-    const location = await Location.findByIdAndUpdate(id, {...req.body.location});
+    const locations = await Location.findByIdAndUpdate(id, {...req.body.locations});
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
-    location.images.push(...imgs);
+    locations.images.push(...imgs);
     await location.save()
     if(req.body.deleteImages) {
         for(let filename of req.body.deleteImages ){//for each filename call-
@@ -72,11 +72,11 @@ module.exports.updateLocation = async(req,res) => {
 
 
         }
-       await location.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}} }) //$pull - to pull elements out of an array
+       await locations.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}} }) //$pull - to pull elements out of an array
     }//deleting specific images from location
    
     req.flash('success', 'Successfully updated location!')
-    res.redirect(`/locations/${location._id}`)
+    res.redirect(`/locations/${locations._id}`)
 }
 
 //DELETE LOCATION
