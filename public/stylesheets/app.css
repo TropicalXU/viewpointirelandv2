@@ -50,6 +50,10 @@ h1, h2, h3, h5 {
     font-family: 'Kanit', sans-serif;
 }
 
+.h1-style {
+    font-family: 'Permanent Marker', cursive;
+}
+
 #signature {
     font-family: 'Pacifico', cursive;
     font-size: 40px;
@@ -89,7 +93,7 @@ h1, h2, h3, h5 {
 
 #navBrand {
     color: #023047;
-    font-size: 22px;
+    font-size: 25px;
     font-family: 'Kanit', sans-serif;
 }
 
