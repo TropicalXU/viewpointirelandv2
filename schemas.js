@@ -30,7 +30,7 @@ module.exports.locationSchema = Joi.object({
     locations: Joi.object({
         title: Joi.string().required().escapeHTML(),
         // price: Joi.number().required().min(0),
-        // image: Joi.string().required(),
+        image: Joi.string().required(),
         location: Joi.string().required().escapeHTML(),
         description: Joi.string().required().escapeHTML()
 
