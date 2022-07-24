@@ -42,7 +42,7 @@
 <!--REFERENCING OUR ENV TOKEN TO ACCESS OUR MAPBOX ACC-->
 <script>
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-    const campgrounds = {features: <%- JSON.stringify(locations) %> }
+    const locations = {features: <%- JSON.stringify(locations) %> }
 </script>
 
 <!--REFERENCING OUR CLUSTER MAP JAVASCRIPT FORM-->
