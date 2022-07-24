@@ -3,6 +3,7 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken: mapBoxToken});
 const { cloudinary } = require('../cloudinary/index');
+const { locationSchema } = require('../schemas');
 
 //SHOWING LOCATIONS PAGE 
 module.exports.index = async (req,res) => {
@@ -34,17 +35,17 @@ module.exports.createLocation = async(req,res, next) => {
 
 //SHOW LOCATION
 module.exports.showLocation = async (req,res) => {
-    const location = await Location.findById(req.params.id).populate({
+    const locations = await Location.findById(req.params.id).populate({
         path: 'reviews',
         populate: {
             path: 'author'
         }//POPULATING AUTHOR OF EACH REVIEW
     }).populate('author');
-    if(!location){
+    if(!locations){
         req.flash('error', 'Location does not exist!');
         return res.redirect('/locations');
     }
-    res.render('locations/show', {location});
+    res.render('locations/show', {locations});
 }
 
 //EDIT LOCATION
