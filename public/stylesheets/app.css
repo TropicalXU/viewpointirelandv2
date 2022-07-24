@@ -178,8 +178,6 @@ h2, h3, h5 {
     border-radius: 25px;
     box-shadow: 0 0 10px rgb(225, 224, 224);
     padding: 30px;
-    display: flex;
-    justify-content: center;
 }
 
 .card-custom {

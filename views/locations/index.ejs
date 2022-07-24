@@ -12,7 +12,7 @@
 
 <!--INCLUDING OUR LOCATION DATA REFERENCING & WRAPPING OUR LOCATION MODEL USING EJS-->
 <% for(let location of locations) {%>
-<div class="container location-container card mb-3 py-5" style="background-color: rgb(244, 244, 244);">
+<div class="container-fluid location-container card mb-3 py-5" style="background-color: rgb(244, 244, 244);">
 	<div class="row">
 		<div class="col-md-4 d-flex justify-content-center pb-4"><% if(location.images.length) { %>
 			<a id="locationImg" href="/locations/<%= location._id %> ">
