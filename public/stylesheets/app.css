@@ -169,6 +169,7 @@ h2, h3, h5 {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     border-radius: 25px;
+    border: none;
     padding: 30px;
     box-shadow: 0 0 20px rgb(228, 228, 228);
 }
