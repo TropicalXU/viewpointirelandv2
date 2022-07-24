@@ -61,8 +61,8 @@ app.use(mongoSanitize({
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 const secret = process.env.SECRET
-const store =  new MongoDBStore({
-    url: dbUrl,
+const store =  MongoDBStore.create({
+    mongoUrl: dbUrl,
     secret,
     touchAfter: 24 * 60 * 60//IF NO DATA HAS CHANGED DONT UPDATE FOR 24HOURS
 });
