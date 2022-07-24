@@ -28,6 +28,8 @@
 }
 
 .wrapper {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 p {
@@ -48,7 +50,7 @@ h1, h2, h3, h5 {
 
 /* MAIN IMAGE HOME */
 .location-header {
-    min
+   min-height: 100vh;
     border: .5px solid darkgrey;
     border-radius: 25px;
     width: 98%;
@@ -58,7 +60,6 @@ h1, h2, h3, h5 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    flex-grow: 1;
     
    
 }
