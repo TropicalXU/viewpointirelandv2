@@ -12,7 +12,7 @@
 
     <div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <% location.images.forEach((img, i) => { %> <!--using ejs to loop over images to get the index of image selected-->
+            <% locations.images.forEach((img, i) => { %> <!--using ejs to loop over images to get the index of image selected-->
                 
          
           <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
@@ -20,7 +20,7 @@
           </div>
        <% }) %> 
         </div>
-        <% if(location.images.length > 1) { %> <!--if there is more then one image include toggle data-->
+        <% if(locations.images.length > 1) { %> <!--if there is more then one image include toggle data-->
         <button class="carousel-control-prev" type="button" data-bs-target="#campgroundCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -33,18 +33,18 @@
       </div>
       <div class="card mb-3" style="background-color: rgb(243, 243, 243);">
           <div class="card-body" style="background-color: rgb(244, 244, 244);">
-              <h5 class="card-title"><%= location.title%></h5>
-              <p class="card-text"><%= location.description%></p>
+              <h5 class="card-title"><%= locations.title%></h5>
+              <p class="card-text"><%= locations.description%></p>
           </div>
           <ul class="list-group list-group-flush">
-              <li class="list-group-item text-muted my-2" style="background-color: rgb(244, 244, 244);"><%= location.location%></li>
-              <li class="list-group-item my-2" style="background-color: rgb(244, 244, 244);">Submitted by <%= location.author.username%></li>
+              <li class="list-group-item text-muted my-2" style="background-color: rgb(244, 244, 244);"><%= locations.location%></li>
+              <li class="list-group-item my-2" style="background-color: rgb(244, 244, 244);">Submitted by <%= locations.author.username%></li>
       
           </ul>
-          <%  if( currentUser && location.author.equals(currentUser._id))  {%> <!--if author of the post include edit/delete functionality-->
+          <%  if( currentUser && locations.author.equals(currentUser._id))  {%> <!--if author of the post include edit/delete functionality-->
           <div class="card-body py-3 mb-3" style="background-color: rgb(244, 244, 244);">
-              <a class="card-link btn btn-outline-secondary px-3" href="/locations/<%=location._id%>/edit">Edit</a>
-              <form class="d-inline" action="/locations/<%=location._id%>?_method=DELETE" method="POST">
+              <a class="card-link btn btn-outline-secondary px-3" href="/locations/<%=locations._id%>/edit">Edit</a>
+              <form class="d-inline" action="/locations/<%=locations._id%>?_method=DELETE" method="POST">
                   <button class="btn btn-danger mx-2">Delete</button>
               </form>
           </div>
@@ -57,7 +57,7 @@
 
    <!--if current user provide option to add review-->
       <h3 style="font-weight: bold;" class="py-5">Leave a Review</h3>
-      <form action="/locations/<%=location._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
+      <form action="/locations/<%=locations._id%>/reviews" method="POST" class="mb-3 validated-form" novalidate>
           <!-- <div class="mb-3">
               <label class="form-label" for="rating">Rating</label>
               <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
@@ -87,7 +87,7 @@
           <button class="btn btn-gradient my-3">Submit</button>
       </form>
    
-      <% for(let review of location.reviews) { %>
+      <% for(let review of locations.reviews) { %>
       <div class="card mb-3 ">
           <div class="card-body">
              <h5 class="card-title" style="color: black;"><%= review.author.username %></h5>
@@ -97,7 +97,7 @@
              
               <p class="card-text" style="color: black;">Review: <%= review.body %></p>
               <%  if( currentUser && review.author.equals(currentUser._id))  {%> <!--providing delete permissions if user is author-->
-              <form action="/locations/<%=location._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+              <form action="/locations/<%=locations._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
                   <button class="btn btn-sm btn-danger">Delete</button>
               </form>
               <% } %>
@@ -113,7 +113,7 @@
 
 <script>
   const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-  const location = <%- JSON.stringify(locationmap) %>
+  const locationmap = <%- JSON.stringify(locations) %>
 </script>
 
 <script src="/javascripts/showPageMap.js"></script> 
