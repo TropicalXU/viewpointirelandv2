@@ -3,7 +3,6 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken: mapBoxToken});
 const { cloudinary } = require('../cloudinary/index');
-const { locationSchema } = require('../schemas');
 
 //SHOWING LOCATIONS PAGE 
 module.exports.index = async (req,res) => {
@@ -19,52 +18,52 @@ module.exports.renderNewForm = (req, res) => {
 //CREATE A NEW LOCATION
 module.exports.createLocation = async(req,res, next) => {
     const geoData = await geocoder.forwardGeocode({
-        query: req.body.locations.location,
+        query: req.body.location.location,
         limit: 1
     }).send()
-   const locations = new Location(req.body.locations);
-   locations.geometry = geoData.body.features[0].geometry;//models/location.js line 19-- grabbing geodata from boding and parsing the json
-   locations.images = req.files.map(f => ({url: f.path, filename: f.filename}));//map over array thats been added to req.files thanks to multer/take path/filename make new object for each
-   locations.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
-   await locations.save();
-   console.log(locations);
+   const location = new Location(req.body.location);
+   location.geometry = geoData.body.features[0].geometry;//models/location.js line 19-- grabbing geodata from boding and parsing the json
+   location.images = req.files.map(f => ({url: f.path, filename: f.filename}));//map over array thats been added to req.files thanks to multer/take path/filename make new object for each
+   location.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
+   await location.save();
+   console.log(location);
    req.flash('success', 'Successfully added a new location!');
-   res.redirect(`/locations/${locations._id}`)
+   res.redirect(`/locations/${location._id}`)
        
 }
 
 //SHOW LOCATION
 module.exports.showLocation = async (req,res) => {
-    const locations = await Location.findById(req.params.id).populate({
+    const location = await Location.findById(req.params.id).populate({
         path: 'reviews',
         populate: {
             path: 'author'
         }//POPULATING AUTHOR OF EACH REVIEW
     }).populate('author');
-    if(!locations){
+    if(!location){
         req.flash('error', 'Location does not exist!');
         return res.redirect('/locations');
     }
-    res.render('locations/show', {locations});
+    res.render('locations/show', {location});
 }
 
 //EDIT LOCATION
 module.exports.renderEditForm = async(req,res) => {
     const {id} = req.params;
-    const locations = await Location.findById(id)
-    if(!locations){
+    const location = await Location.findById(id)
+    if(!location){
         req.flash('error', 'Location does not exist!');
         return res.redirect('/locations');
     }
-    res.render('locations/edit', {locations});
+    res.render('locations/edit', {location});
 }
 
 //UPDATE LOCATION
 module.exports.updateLocation = async(req,res) => {
     const {id} = req.params;//FIND LOCATION ID
-    const locations = await Location.findByIdAndUpdate(id, {...req.body.locations});
+    const location = await Location.findByIdAndUpdate(id, {...req.body.location});
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
-    locations.images.push(...imgs);
+    location.images.push(...imgs);
     await location.save()
     if(req.body.deleteImages) {
         for(let filename of req.body.deleteImages ){//for each filename call-
@@ -72,11 +71,11 @@ module.exports.updateLocation = async(req,res) => {
 
 
         }
-       await locations.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}} }) //$pull - to pull elements out of an array
+       await location.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}} }) //$pull - to pull elements out of an array
     }//deleting specific images from location
    
     req.flash('success', 'Successfully updated location!')
-    res.redirect(`/locations/${locations._id}`)
+    res.redirect(`/locations/${location._id}`)
 }
 
 //DELETE LOCATION
