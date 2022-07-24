@@ -347,3 +347,11 @@ h2, h3, h5 {
    display: flex;
    justify-content: end;
 }
+
+@media screen and(min-width: 550px) {
+    .light-footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
