@@ -153,7 +153,7 @@ h1, h2, h3, h5 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat; 
-    box-shadow: 0 0 10px rgb(225, 224, 224);
+    box-shadow: 0 0 10px rgb(207, 207, 207);
 }
 
 #locationImg:hover {
