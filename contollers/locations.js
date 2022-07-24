@@ -29,7 +29,6 @@ module.exports.createLocation = async(req,res, next) => {
    console.log(location);
    req.flash('success', 'Successfully added a new location!');
    res.redirect(`/locations/${location._id}`)
-   return next();
        
 }
 
