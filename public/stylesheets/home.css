@@ -46,7 +46,7 @@ h1, h2, h3, h5 {
 
 /* MAIN IMAGE HOME */
 .location-header {
-    min-height: fit-content;
+
     border: .5px solid darkgrey;
     border-radius: 25px;
     width: 98%;
@@ -56,6 +56,7 @@ h1, h2, h3, h5 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    flex-grow: 1;
     
    
 }
