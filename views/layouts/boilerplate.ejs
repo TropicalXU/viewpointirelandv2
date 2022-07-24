@@ -24,15 +24,15 @@
 </head>
 
 <!-- MAIN BODY FOR WEBSITE -->
-<body class="d-flex flex-column vh-100">
+<body class="wrapper vh-100">
   <%- include('../partials/navbar') %> <!--INCLUDING NAVBAR INTO ALL PAGES USING EJS -->
 
-   <main class="container-fluid wrapper">
+
      <%- include('../partials/flash') %> <!--INCLUDING SUCCESS/ERROR FLASH BOX USING EJS-->
 
 <%- body %> <!--INDICATING WHERE EACH PAGE PARTIAL IS INSERTED USING EJS-->
 
-</main>
+
 <main class="container-fluid wrapper">
 <div class="footer">
 <%- include('../partials/footer') %> <!--INCLUDING WEBSITE FOOTER TO ALL PAGES USING EJS-->
