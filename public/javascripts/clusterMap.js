@@ -27,7 +27,7 @@ clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 
 map.addLayer({
 id: 'clusters',
 type: 'circle',
-source: 'location',
+source: 'locations',
 filter: ['has', 'point_count'],
 paint: {
 // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
