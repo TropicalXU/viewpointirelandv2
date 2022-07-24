@@ -27,7 +27,7 @@ module.exports.createLocation = async(req,res, next) => {
    location.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
    await location.save();
    console.log(location);
-   req.flash('success', 'Successfully made a new location!');
+   req.flash('success', 'Successfully added a new location!');
    res.redirect(`/locations/${location._id}`)
        
 }
