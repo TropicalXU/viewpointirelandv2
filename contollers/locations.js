@@ -23,7 +23,7 @@ module.exports.createLocation = async(req,res, next) => {
     }).send()
    const location = new Location(req.body.location);
    location.geometry = geoData.body.features[0].geometry;//models/location.js line 19-- grabbing geodata from boding and parsing the json
-   location.images = req.files.map(f => ({url: f.path, filename: f.filename}));//mapp over array thats been added to req.files thanks to multer/take path/filename make new object for each
+   location.images = req.files.map(f => ({url: f.path, filename: f.filename}));//map over array thats been added to req.files thanks to multer/take path/filename make new object for each
    location.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
    await location.save();
    console.log(location.images);

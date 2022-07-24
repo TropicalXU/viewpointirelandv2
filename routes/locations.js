@@ -5,8 +5,9 @@ const { isLoggedIn, validateLocation, isAuthor } = require('../middleware');
 const locations = require('../contollers/locations');
 const multer  = require('multer');
 const {storage} = require('../cloudinary');
-const { Router } = require('express');
 const upload = multer({ storage });
+
+const Location = require('../models/Location')
 
 router.route('/')
  .get(catchAsync(locations.index))//SHOWING LOCATION PAGE - controllers/locations/index
