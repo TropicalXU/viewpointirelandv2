@@ -21,9 +21,7 @@
   <main class="container-fluid wrapper">
         <div class="location-header p-3 mb-3">
             <header class="mb-auto">
-                <div><!--HOME NAVBAR-->
                     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent py-3 px-4">
-                        <div class="container">
                           <a href="/"  id="navBrand"><img src="/images/brand.png" id="navLogo" style="height:40px;width: 40px;" alt="Viewpoint Ireland logo image">
                             <span class="mx-2">
                             Viewpoint<span style="color: #2a9d8f;font-weight:700;font-size:30px;">Ireland</span></span></a>
@@ -46,25 +44,22 @@
                               <a class="nav-link px-3" id="logout" href="/logout">Logout</a>
                               <% } %> 
                             </div>
-                    
-                          </div>
                      
                     </nav>
-                </div>
             </header>
             <!--HOME MAIN CONTENT-->
-            <main class="px-3 my-5 py-5">
+            <section class="px-3 my-5 py-5">
                 <h1 id="signature" class="my-5 bounceIn">Viewpoint Ireland<i style="font-style: italic;" class="fa-solid fa-clover fa-lg px-5"></i></h1>
                 <p class="lead py-3"> Welcome to Viewpoint Ireland! <br> Jump right in and explore our many locations. <br>
                     Feel free to share some of your own and comment on others!</p>
                 <a href="/locations" class="btn btn-gradient">View
                     Locations</a>
-            </main>
+                </section>
     
             <footer class="mt-auto text-white-50">
                 <p style="font-size: 12px;">&copy; Viewpoint Ireland 2022. </p>
             </footer>
-        </div>
+      
       </div>
         <%- include('./partials/cookieConsent') %> <!--INCLUDING COOKIE POP UP BOX USING EJS--> 
     
