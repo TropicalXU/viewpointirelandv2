@@ -34,17 +34,17 @@ module.exports.createLocation = async(req,res, next) => {
 
 //SHOW LOCATION
 module.exports.showLocation = async (req,res) => {
-    const locations = await Location.findById(req.params.id).populate({
+    const location = await Location.findById(req.params.id).populate({
         path: 'reviews',
         populate: {
             path: 'author'
         }//POPULATING AUTHOR OF EACH REVIEW
     }).populate('author');
-    if(!locations){
+    if(!location){
         req.flash('error', 'Location does not exist!');
         return res.redirect('/locations');
     }
-    res.render('locations/show', {locations});
+    res.render('locations/show', {location});
 }
 
 //EDIT LOCATION
