@@ -3,7 +3,7 @@
 <div class="mb-3" id="cluster-map"></div> <!--INCLUDING OUR MAPBOX MAP-->
 
 <!--MAIN HEADER-->
-<div class="location-header my-5 flex-column text-center">
+<div class="container-fluid location-header my-5 flex-column text-center">
 	<h1 style="color:white;font-size: 90px;" class="py-5" id="signature">All Locations</h1>
 	<a class="btn-gradient py-2 px-4" href="/locations/new">Add Location
 		<i class="fa-solid fa-location-crosshairs px-1"></i>
@@ -12,7 +12,7 @@
 
 <!--INCLUDING OUR LOCATION DATA REFERENCING & WRAPPING OUR LOCATION MODEL USING EJS-->
 <% for(let location of locations) {%>
-<div class="location-container card mb-3 py-5 px-2" style="background-color: rgb(244, 244, 244);">
+<div class="container-fluid location-container card mb-3 py-5 px-2" style="background-color: rgb(244, 244, 244);">
 	<div class="row">
 		<div class="col-md-4 d-flex justify-content-center pb-4"><% if(location.images.length) { %>
 			<a id="locationImg" href="/locations/<%= location._id %> ">
