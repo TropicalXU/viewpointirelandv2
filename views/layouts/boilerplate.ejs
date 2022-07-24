@@ -26,9 +26,9 @@
 <body class="d-flex flex-column vh-100">
   <%- include('../partials/navbar') %> <!--INCLUDING NAVBAR INTO ALL PAGES USING EJS -->
 
-   <main class="container">
+   <main class="container-fluid wrapper">
      <%- include('../partials/flash') %> <!--INCLUDING SUCCESS/ERROR FLASH BOX USING EJS-->
-     <main class="wrapper container-fluid">
+
 <%- body %> <!--INDICATING WHERE EACH PAGE PARTIAL IS INSERTED USING EJS-->
 
 </main>
@@ -42,7 +42,7 @@
 
 <script src="/javascripts/validateForms.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
-</main>
+
 
 </body>
 </html>
