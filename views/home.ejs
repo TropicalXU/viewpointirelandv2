@@ -18,40 +18,33 @@
 </head>
 
 <body class="text-white text-center">
-  <main class="wrapper">
+  <main class="container-fluid wrapper">
         <div class="location-header p-3 mx-auto flex-column container-fluid mb-3 wrapper">
             <header class="mb-auto">
-                <div><!--HOME NAVBAR-->
-                    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-transparent py-3 px-4">
-                        <div class="container">
-                          <a href="/"  id="navBrand"><img src="/images/brand.png" id="navLogo" style="height:40px;width: 40px;" alt="Viewpoint Ireland logo image">
-                            <span class="mx-2">
-                            Viewpoint<span style="color: #2a9d8f;font-weight:700;font-size:30px;">Ireland</span></span></a>
-                        <a href="#" class="toggle-button my-4">
-                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
-                            <div class="navbar-nav ms-auto">
-                              <a id="navLink" class="nav-link px-4" href="/"><i style="color: rgb(255, 255, 255);" class="fa-solid fa-house px-2"></i>Home</a>
-                              <a id="navLink" class="nav-link px-4" href="/locations"><i style="color: rgb(255, 255, 255);" class="fa-regular fa-compass px-2"></i>Locations</a>
-                     
-                             
-                            </div>
-                            <div class="navbar-nav ms-auto ">
-                              <% if(!currentUser) { %> 
-                              <a id="navLink" class="nav-link px-4 mx-2" href="/login">Login</a>
-                              <a class="nav-link btn-gradient px-4" href="/register">Register</a>
-                              <% } else { %> 
-                              <a class="nav-link px-3" id="logout" href="/logout">Logout</a>
-                              <% } %> 
-                            </div>
-                    
-                          </div>
-                        </div>
-                      </nav>
-                    </nav>
-                </div>
+              <nav class="container-fluid navbar sticky-top navbar-expand-lg navbar-light bg-white pt-3 px-4">
+
+                <a href="/"  id="navBrand"><img src="/images/brand.png" id="navLogo" style="height:40px;width: 40px;" alt="Viewpoint Ireland brand logo">
+                  <span class="mx-2">
+                  Viewpoint<span style="color: #2a9d8f;font-weight:700;font-size: 26px;">Ireland</span></span></a>
+              <a href="#" class="toggle-button my-4">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+                  <div class="navbar-nav ms-auto">
+                    <a id="navLink" class="nav-link px-4" href="/"><i style="color: lightgrey;" class="fa-solid fa-house px-2"></i>Home</a>
+                    <a id="navLink" class="nav-link px-4" href="/locations"><i style="color: lightgrey;" class="fa-regular fa-compass px-2"></i>Locations</a>
+                  </div>
+                  <div class="navbar-nav ms-auto ">
+                    <% if(!currentUser) { %> <!--USING EJS TO DETERMINE IF USER IS LOGGED IN OR NOT TO DISPLAY FOLLOWING BUTTONS-->
+                    <a id="navLink" class="nav-link px-4 mx-2" href="/login">Login</a>
+                    <a class="nav-link btn-gradient px-4" href="/register">Register</a>
+                    <% } else { %> 
+                    <a class="nav-link px-3" id="logout" href="/logout">Logout</a>
+                    <% } %> 
+                  </div>
+          
+            </nav>
             </header>
             <!--HOME MAIN CONTENT-->
             <main class="px-3 my-5 py-5">
