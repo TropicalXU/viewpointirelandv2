@@ -38,9 +38,6 @@
               <li class="list-group-item my-2" style="background-color: rgb(244, 244, 244);">Submitted by <span style="color: #2a9d8f;"> <%= location.author.username%></span></li>
       
           </ul>
-          <div class="mt-4">
-            <a class="btn btn-gradient" href="/locations"><i class="fa-solid fa-chevron-left px-2 ml-2"></i>All Locations</a> 
-          </div>
           <%  if( currentUser && location.author.equals(currentUser._id))  {%> <!--if author of the post include edit/delete functionality-->
           <div class="card-body py-3 mb-3" style="background-color: rgb(244, 244, 244);">
               <a class="card-link btn btn-outline-secondary px-3" href="/locations/<%=location._id%>/edit">Edit</a>
@@ -49,6 +46,9 @@
               </form>
           </div>
           <% } %>
+          <div class="mt-4">
+            <a class="btn btn-gradient" href="/locations"><i class="fa-solid fa-chevron-left px-2 ml-2"></i>All Locations</a> 
+          </div>
       </div>
 
   </div>
