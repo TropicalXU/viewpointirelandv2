@@ -7,7 +7,7 @@ const multer  = require('multer');
 const {storage} = require('../cloudinary');
 const upload = multer({ storage });
 
-const Location = require('../models/Location')
+const Location = require('../models/Location');
 
 router.route('/')
  .get(catchAsync(locations.index))//SHOWING LOCATION PAGE - controllers/locations/index

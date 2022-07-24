@@ -26,7 +26,7 @@ module.exports.createLocation = async(req,res, next) => {
    location.images = req.files.map(f => ({url: f.path, filename: f.filename}));//map over array thats been added to req.files thanks to multer/take path/filename make new object for each
    location.author = req.user._id; //DEFINING WHICH USER IS ON THE PAGE IF THEY ADD LOCATION THEIR NAME WILL SHOW
    await location.save();
-   console.log(location.images);
+   console.log(location);
    req.flash('success', 'Successfully made a new location!');
    res.redirect(`/locations/${location._id}`)
    next();
