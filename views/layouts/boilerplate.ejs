@@ -20,31 +20,34 @@
 
     <title>Viewpoint Ireland</title>
     <!-- TAB ICON -->
-    <link class="icon" rel="icon" href="/images/brand.png" type="image/x-icon" style="max-width:50px;max-height:50px">
+    <link class="icon" rel="icon" href="/images/brand.png" type="image/x-icon" style="width:50px;height:50px">
 </head>
 
 <!-- MAIN BODY FOR WEBSITE -->
 <body>
   <%- include('../partials/navbar') %> <!--INCLUDING NAVBAR INTO ALL PAGES USING EJS -->
 
-  <main class="container wrapper mt-5">
-    <%- include('../partials/flash') %> <!--INCLUDING SUCCESS/ERROR FLASH BOX USING EJS-->
-    <%- body %> <!--INDICATING WHERE EACH PAGE PARTIAL IS INSERTED USING EJS-->
- </main>
+    <main class="container wrapper mt-5">
+     <%- include('../partials/flash') %> <!--INCLUDING SUCCESS/ERROR FLASH BOX USING EJS-->
+
+<%- body %> <!--INDICATING WHERE EACH PAGE PARTIAL IS INSERTED USING EJS-->
+
+    </main>
    
- <%- include('../partials/cookieConsent') %> 
+      <%- include('../partials/cookieConsent') %> 
   
-  <main class="contianer wrapper">
-  <%- include('../partials/footer') %> <!--INCLUDING WEBSITE FOOTER TO ALL PAGES USING EJS-->
-  </main>
 
- <%- include('../partials/cookieConsent') %>
- <!--MAIN SCRIPT SOURCE LINKS FOR WEBSITE-->
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<main class="contianer wrapper">
+<%- include('../partials/footer') %> <!--INCLUDING WEBSITE FOOTER TO ALL PAGES USING EJS-->
+</main>
+<%- include('../partials/cookieConsent') %>
+<!--MAIN SCRIPT SOURCE LINKS FOR WEBSITE-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
- <script src="/javascripts/validateForms.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+<script src="/javascripts/validateForms.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
 
 </body>
 </html>
