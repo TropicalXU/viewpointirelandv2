@@ -124,8 +124,6 @@ h2, h3, h5 {
 
 .location-header {
     border-radius: 25px;
-    padding-left: 10px;
-    padding-right: 10px;
     padding: 60px;
     background-image: url('https://images.unsplash.com/photo-1445098363707-e5f88be649f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80');
     background-size: cover;
@@ -139,8 +137,6 @@ h2, h3, h5 {
     border-radius: 25px;
     border: none;
     padding: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
     background-image: url('https://images.unsplash.com/photo-1596039677662-90c00fbde9b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2757&q=80');
     background-size: cover;
     background-attachment: fixed;
