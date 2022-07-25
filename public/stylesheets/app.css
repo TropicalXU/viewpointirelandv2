@@ -4,20 +4,20 @@ html,body
     overflow-x: hidden; 
 }
 @media (min-width: 376px) {
-    .wrapper {width:90%;  margin: 0 auto; }
+    .wrapper {width:90%; }
     
 }
 
 @media (min-width: 390px){
-    .wrapper {width:90%;  margin: 0 auto; } 
+    .wrapper {width:90%; } 
 }
 
 @media (min-width: 576px) {
-    .wrapper {width:90%;  margin: 0 auto; } 
+    .wrapper {width:90%;  } 
 }
 
 @media (min-width: 768px) {
-    .wrapper {width:90%;  margin: 0 auto; }  
+    .wrapper {width:90%;}  
 }
 
 /* @media(max-width: 1163px) {
@@ -25,11 +25,11 @@ html,body
 } */
 
 @media (min-width: 1200px) {
-    .wrapper {width:100%;  margin: 0 auto; }
+    .wrapper {width:100%; }
 }
 
 @media (min-width: 2000px) {
-    .wrapper {width:100%;  margin: 0 auto; }
+    .wrapper {width:100%;}
 }
 
 .wrapper {
@@ -44,7 +44,7 @@ html,body
 }
 
 #cluster-map {
-    max-width: 100%;
+    width: 100%;
     height:500px;
     border-radius: 25px;
 }
