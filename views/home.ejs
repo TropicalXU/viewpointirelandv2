@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head> <!--HOME PAGE HTML-->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/home.css">
-    <title>Viewpoint Ireland</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/home.css">
+  <title>Viewpoint Ireland</title>
 
-    <link class="icon" rel="icon" href="/images/brand.png" type="image/x-icon">
+  <link class="icon" rel="icon" href="/images/brand.png" type="image/x-icon">
 </head>
 
 <body class="text-white">
   <main class="container-fluid wrapper">
-        <div class="location-header p-3 mb-3">
-            <header class="mb-auto">
-                    <nav class="container-fluid navbar sticky-top navbar-expand-lg navbar-light bg-transparent py-3 px-4">
-                          <a href="/"  id="navBrand"><img src="/images/brand.png" id="navLogo" style="height:40px;width: 40px;" alt="Viewpoint Ireland logo image">
-                            <span class="mx-2">
-                            Viewpoint<span style="color: #2a9d8f;font-weight:700;font-size:30px;">Ireland</span></span></a>
-                        <a href="#" class="toggle-button my-4">
-                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                          </button>
-                          <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
-                            <div class="navbar-nav ms-auto">
-                              <a id="navLink" class="nav-link px-4" href="/"><i style="color: rgb(255, 255, 255);" class="fa-solid fa-house px-2"></i>Home</a>
-                              <a id="navLink" class="nav-link px-4" href="/locations"><i style="color: rgb(255, 255, 255);" class="fa-regular fa-compass px-2"></i>Locations</a>
-                     
-                             
-                            </div>
-                            <div class="navbar-nav ms-auto ">
-                              <% if(!currentUser) { %> 
-                              <a id="navLink" class="nav-link px-4 mx-2" href="/login">Login</a>
-                              <a class="nav-link btn-gradient px-4" href="/register">Register</a>
-                              <% } else { %> 
-                              <a class="nav-link px-3" id="logout" href="/logout">Logout</a>
-                              <% } %> 
-                            </div>
-                     
-                    </nav>
-            </header>
-            <!--HOME MAIN CONTENT-->
-            <section class="px-3 my-5 py-5 text-center">
-                <h1 id="signature" class="my-5 bounceIn">Viewpoint Ireland<i style="font-style: italic;" class="fa-solid fa-clover fa-lg px-5"></i></h1>
-                <p class="lead py-3"> Welcome to Viewpoint Ireland! <br> Jump right in and explore our many locations. <br>
-                    Feel free to share some of your own and comment on others!</p>
-                <a href="/locations" class="btn btn-gradient">View
-                    Locations</a>
-                </section>
+    <div class="location-header p-3 mb-3">
+      <header class="mb-auto">
+       <nav class="container-fluid navbar sticky-top navbar-expand-lg navbar-light bg-transparent py-3 px-4">
+         <a href="/"  id="navBrand"><img src="/images/brand.png" id="navLogo" style="height:40px;width: 40px;" alt="Viewpoint Ireland logo image">
+            <span class="mx-2">
+             Viewpoint<span style="color: #2a9d8f;font-weight:700;font-size:30px;">Ireland</span>
+            </span>
+          </a>
+          <a href="#" class="toggle-button my-4">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </a>
+          <div class="collapse navbar-collapse text-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav ms-auto">
+              <a id="navLink" class="nav-link px-4" href="/"><i style="color: rgb(255, 255, 255);" class="fa-solid fa-house px-2"></i>Home</a>
+              <a id="navLink" class="nav-link px-4" href="/locations"><i style="color: rgb(255, 255, 255);" class="fa-regular fa-compass px-2"></i>Locations</a>
+            </div>
+            <div class="navbar-nav ms-auto ">
+              <% if(!currentUser) { %> 
+              <a id="navLink" class="nav-link px-4 mx-2" href="/login">Login</a>
+              <a class="nav-link btn-gradient px-4" href="/register">Register</a>
+              <% } else { %> 
+              <a class="nav-link px-3" id="logout" href="/logout">Logout</a>
+              <% } %> 
+            </div>
+          </div>
+        </nav>
+      </header>
+      <!--HOME MAIN CONTENT-->
+      <section class="px-3 my-5 py-5 text-center">
+        <h1 id="signature" class="my-5 bounceIn">Viewpoint Ireland<i style="font-style: italic;" class="fa-solid fa-clover fa-lg px-5"></i></h1>
+        <p class="lead py-3"> Welcome to Viewpoint Ireland! <br> Jump right in and explore our many locations. <br>
+         Feel free to share some of your own and comment on others!
+        </p>
+        <a href="/locations" class="btn btn-gradient">View Locations</a>
+      </section>
+      <footer class="mt-auto text-white-50 text-center">
+        <p style="font-size: 12px;">&copy; Viewpoint Ireland 2022. </p>
+      </footer>
+    </div>
+    <%- include('./partials/cookieConsent') %> <!--INCLUDING COOKIE POP UP BOX USING EJS--> 
     
-            <footer class="mt-auto text-white-50 text-center">
-                <p style="font-size: 12px;">&copy; Viewpoint Ireland 2022. </p>
-            </footer>
-      
-      </div>
-        <%- include('./partials/cookieConsent') %> <!--INCLUDING COOKIE POP UP BOX USING EJS--> 
-    
-        <!--INCLUDING OUR HOME PAGE SCRIPT SOURCE URLS-->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <!--INCLUDING OUR HOME PAGE SCRIPT SOURCE URLS-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 
-<script src="/javascripts/validateForms.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
-</main>
+    <script src="/javascripts/validateForms.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
+  </main>
 </body>
 </html>
