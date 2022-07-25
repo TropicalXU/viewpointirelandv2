@@ -1,4 +1,5 @@
-<% layout('/layouts/boilerplate') %> 
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %> 
 
 <link rel="stylesheet" href="/stylesheets/stars.css">
 
@@ -101,7 +102,7 @@
   </div>
 </section>
 
-<%- include('../partials/cookieConsent') %>
+
 
 <script>
   const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
@@ -110,3 +111,9 @@
 
 <script src="/javascripts/showPageMap.js"></script> 
  
+<%- include('../partials/cookieConsent') %>
+<%- include('../partials/scripts') %> 
+<%- include('../partials/footer') %> 
+</main> 
+</body>
+</html>

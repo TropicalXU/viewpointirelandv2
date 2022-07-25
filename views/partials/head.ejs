@@ -20,33 +20,14 @@
 
     <!-- TAB ICON -->
     <link class="icon" rel="icon" href="/images/brand.png" type="image/x-icon" style="width:50px;height:50px">
+
+    <style>
+        .form-slides { overflow:hidden; border: 1px solid #ccc; /*margin: 25px*/}
+        .wrap { width: 9999px; }
+        .slide { float:left; position: relative; background:#eee; height:auto !important;}
+        </style>
 </head>
 
 <!-- MAIN BODY FOR WEBSITE -->
-<body class="d-flex flex-column vh-100">
-  <%- include('../partials/navbar') %> <!--INCLUDING NAVBAR INTO ALL PAGES USING EJS -->
-
-    <main class="container mt-5">
-     <%- include('../partials/flash') %> <!--INCLUDING SUCCESS/ERROR FLASH BOX USING EJS-->
-
-<%- body %> <!--INDICATING WHERE EACH PAGE PARTIAL IS INSERTED USING EJS-->
-
-    </main>
-   
-   
-  
-
-
-<%- include('../partials/footer') %> <!--INCLUDING WEBSITE FOOTER TO ALL PAGES USING EJS-->
-
-
-<!--MAIN SCRIPT SOURCE LINKS FOR WEBSITE-->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
-
-<script src="/javascripts/validateForms.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
-
-
-</body>
-</html>
+<body>
+<main class="wrapper">

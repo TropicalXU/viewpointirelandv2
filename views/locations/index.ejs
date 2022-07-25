@@ -1,4 +1,5 @@
-<% layout('/layouts/boilerplate') %> <!--INCLUDING OUR BOILERPLATE USING EJS-->
+<%- include('../partials/head') %> 
+<%- include('../partials/navbar') %> 
 
 <div class="mb-3" id="cluster-map"></div> <!--INCLUDING OUR MAPBOX MAP-->
 
@@ -46,4 +47,11 @@
 
 <!--REFERENCING OUR CLUSTER MAP JAVASCRIPT FORM-->
 <script src="/javascripts/clusterMap.js"></script>
+
+<%- include('../partials/scripts') %> 
+<%- include('../partials/footer') %> 
+</main> 
+</body>
+</html>
+
 		
