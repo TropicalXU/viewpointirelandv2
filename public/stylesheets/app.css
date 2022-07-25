@@ -1,8 +1,6 @@
 html,body {
     overflow-x: hidden; 
     margin: auto;
-    display: flex;
-    justify-content: center;
 }
 
 @media (min-width: 376px) {
@@ -30,11 +28,11 @@ html,body {
     .wrapper {width:100%;  margin: 0 auto; }
 }
 
-.wrapper {
+/* .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
+} */
 
 .responsive {
     height: auto;
@@ -133,8 +131,8 @@ h2, h3, h5 {
 
 .location-header {
     border-radius: 25px;
-    margin-left: 10px;
-    margin-right: 10px;
+    /* margin-left: 10px;
+    margin-right: 10px; */
     padding: 60px;
     background-image: url('https://images.unsplash.com/photo-1445098363707-e5f88be649f8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80');
     background-size: cover;
