@@ -325,6 +325,8 @@ h2, h3, h5 {
     color: white;
     padding-top: 60px;
     padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-bottom: 15px;
     background:#023047;
     font-size: 15px;
@@ -332,7 +334,6 @@ h2, h3, h5 {
     box-shadow: 0 10px 20px rgb(202, 202, 202);
     z-index:9999;
     position:relative;
-    box-shadow: 0 10px 20px rgb(198, 198, 198);
 } 
 
 .light-footer a i {
