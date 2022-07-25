@@ -44,8 +44,8 @@
             </div>
             <div class="mb-3">
                 <h5> Delete Images </h5>
-    <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
-                <% location.images.forEach(function(img, i) { %> <!--looping over each image to get image index if item is selected-->
+                <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
+                    <% location.images.forEach(function(img, i) { %> <!--looping over each image to get image index if item is selected-->
                     <div class="col">
                         <div class="card">
                             <img class="img-thumbnail" src="<%=img.url%>" alt="Location image thumbnail">
@@ -55,6 +55,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 <% }) %>
             </div>
             <div class="mb-3">
@@ -66,5 +67,5 @@
 
 <div class="d-flex justify-content-center my-5">
     <a class="btn btn-gradient" href="/locations/<%= location._id%>"><i class="fa-solid fa-chevron-left px-2"></i>Back To Location</a>
-    </div>
+</div>
 

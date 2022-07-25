@@ -15,28 +15,25 @@
 <div class="container-fluid location-container card mb-3 py-5 px-2" style="background-color: rgb(244, 244, 244);">
 	<div class="row">
 		<div class="col-md-4 d-flex justify-content-center pb-4"><% if(location.images.length) { %>
-			<a id="locationImg" href="/locations/<%= location._id %> ">
+			    <a id="locationImg" href="/locations/<%= location._id %> ">
 				<img class="img-fluid responsive" alt="Location image" src="<%=location.images[0].url%>">
 				</a><% }else {%>
 				<img class="img-fluid" alt="Location image default" src="https://res.cloudinary.com/dhrs5mwhz/image/upload/v1652198301/YelpCamp/rj0ew7pzwiseplivcln6.jpg"><% } %>
-				</div>
-				<div class="col-md-8">
-					<div class="card-body">
-						<h5 class="card-title"><%= location.title %>
-						</h5>
-						<p class="card-text py-4"><%= location.description %>
-						</p>
-						<p class="card-text">
-							<small class="text-muted"><%= location.location %>
-							</small>
-						</p>
-						<a class="btn btn-gradient" href="/locations/<%= location._id %> ">View <%= location.title %>
-							<i class="fa-solid fa-chevron-right px-2"></i>
-						</a>
-					</div>
-				</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title"><%= location.title %> </h5>
+					<p class="card-text py-4"><%= location.description %> </p>
+					<p class="card-text">
+						<small class="text-muted"><%= location.location %> </small>
+					</p>
+					<a class="btn btn-gradient" href="/locations/<%= location._id %> ">View <%= location.title %>
+						<i class="fa-solid fa-chevron-right px-2"></i>
+					</a>
 			</div>
 		</div>
+	</div>
+</div>
         <% } %>
 
 <!--REFERENCING OUR ENV TOKEN TO ACCESS OUR MAPBOX ACC-->
