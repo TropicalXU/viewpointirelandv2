@@ -101,6 +101,8 @@
   </div>
 </section>
 
+<%- include('../partials/cookieConsent') %>
+
 <script>
   const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
   const locations = <%- JSON.stringify(location) %>
