@@ -1,4 +1,8 @@
-<% layout('layouts/boilerplate') %> 
+<%- include('../partials/head') %> 
+<%- include('../partials/navbar') %>
+<div class="container mt-3">
+<%- include('../partials/flash') %> 
+</div>
 
 <!--REGISTER CARD FORM-->
 <div class="d-flex justify-content-center align-items-center mb-3">
@@ -40,6 +44,12 @@
   </div>
 </div>
 
+<%- include('../partials/cookieConsent') %> 
+<%- include('../partials/scripts') %> 
+<%- include('../partials/footer') %> 
+</main> 
+</body>
+</html>
 
 
 

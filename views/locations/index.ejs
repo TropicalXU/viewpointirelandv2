@@ -1,6 +1,9 @@
 <%- include('../partials/head') %> 
 <%- include('../partials/navbar') %> 
-
+<div class="container mt-3">
+	<%- include('../partials/flash') %> 
+</div>
+<section class="d-flex flex-column vh-100">
 <div class="mb-3" id="cluster-map"></div> <!--INCLUDING OUR MAPBOX MAP-->
 
 <!--MAIN HEADER-->
@@ -40,7 +43,7 @@
 <div>
 <%- include('../partials/cookieConsent') %>
 </div>
-
+</section>
 <!--REFERENCING OUR ENV TOKEN TO ACCESS OUR MAPBOX ACC-->
 <script>
     const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
