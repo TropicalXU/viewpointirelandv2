@@ -3,12 +3,12 @@ html,body {
 }
 
 @media (min-width: 376px) {
-    .wrapper {width:100%; }
+    .wrapper {width:100%; margin: 0 auto; }
     
 }
 
 @media (min-width: 390px){
-    .wrapper {width:100%; } 
+    .wrapper {width:100%; margin: 0 auto; } 
 }
 
 @media (min-width: 576px) {
