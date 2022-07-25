@@ -16,7 +16,7 @@
 	<div class="row">
 		<div class="col-md-4 d-flex justify-content-center pb-4"><% if(location.images.length) { %>
 			    <a id="locationImg" href="/locations/<%= location._id %> ">
-				<img class="img-fluid" alt="Location image" src="<%=location.images[0].url%>">
+				<img class="img-fluid" style="width:250px;height:250px" alt="Location image" src="<%=location.images[0].url%>">
 				</a><% }else {%>
 				<img class="img-fluid" alt="Location image default" src="https://res.cloudinary.com/dhrs5mwhz/image/upload/v1652198301/YelpCamp/rj0ew7pzwiseplivcln6.jpg"><% } %>
 		</div>
