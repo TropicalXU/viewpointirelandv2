@@ -60,6 +60,8 @@ h1, h2, h3, h5 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
+    z-index:9999;
+    position:relative;
     
    
 }
